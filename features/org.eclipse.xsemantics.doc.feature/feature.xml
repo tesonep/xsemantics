@@ -12,7 +12,7 @@ Contributors:
 <feature
       id="org.eclipse.xsemantics.doc.feature"
       label="Xsemantics Documentation Feature"
-      version="1.12.1.qualifier"
+      version="1.13.0.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1.v20140414-1359">
@@ -40,6 +40,19 @@ Contributors:
    <license url="%licenseURL">
       %license
    </license>
+
+   <requires>
+      <import plugin="org.eclipse.help" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.xdoc.generator"/>
+      <import plugin="org.eclipse.xsemantics.runtime"/>
+      <import plugin="org.eclipse.xsemantics.example.lambda"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.xsemantics.example.lambda.ui"/>
+      <import plugin="org.eclipse.xsemantics.example.fj"/>
+      <import plugin="org.eclipse.xsemantics.dsl"/>
+      <import plugin="org.eclipse.emf.mwe2.launch"/>
+      <import plugin="org.apache.log4j"/>
+   </requires>
 
    <plugin
          id="org.eclipse.xsemantics.doc"

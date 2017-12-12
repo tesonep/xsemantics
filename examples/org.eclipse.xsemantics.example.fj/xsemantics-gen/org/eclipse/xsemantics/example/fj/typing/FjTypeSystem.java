@@ -1,14 +1,13 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2013-2017 Lorenzo Bettini.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *   Lorenzo Bettini - Initial contribution and API
- *******************************************************************************/
-
+ */
 package org.eclipse.xsemantics.example.fj.typing;
 
 import com.google.common.base.Objects;
@@ -17,6 +16,14 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.function.Consumer;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xsemantics.example.fj.fj.BasicType;
 import org.eclipse.xsemantics.example.fj.fj.BoolConstant;
 import org.eclipse.xsemantics.example.fj.fj.Cast;
@@ -47,14 +54,6 @@ import org.eclipse.xsemantics.runtime.RuleApplicationTrace;
 import org.eclipse.xsemantics.runtime.RuleEnvironment;
 import org.eclipse.xsemantics.runtime.RuleFailedException;
 import org.eclipse.xsemantics.runtime.XsemanticsRuntimeSystem;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.function.Consumer;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -506,7 +505,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
     if (_tripleNotEquals) {
       List<Field> inheritedFields = this.fieldsInternal(_trace_, clazz.getSuperclass());
       final Consumer<Field> _function = new Consumer<Field>() {
-        @Override
         public void accept(final Field inheritedField) {
           String _name = field.getName();
           String _name_1 = inheritedField.getName();
@@ -546,10 +544,8 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
       List<Method> inheritedMethods = this.methodsInternal(_trace_, clazz.getSuperclass());
       final List<Method> methods = EcoreUtil2.<Method>typeSelect(clazz.getMembers(), Method.class);
       final Consumer<Method> _function = new Consumer<Method>() {
-        @Override
         public void accept(final Method inheritedMethod) {
           final Consumer<Method> _function = new Consumer<Method>() {
-            @Override
             public void accept(final Method it) {
               FjTypeSystem.this.overridesInternal(_trace_, it, inheritedMethod);
             }
@@ -958,7 +954,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
     {
       final List<Method> methods = EcoreUtil2.<Method>typeSelect(clazz.getMembers(), Method.class);
       final Consumer<org.eclipse.xsemantics.example.fj.fj.Class> _function = new Consumer<org.eclipse.xsemantics.example.fj.fj.Class>() {
-        @Override
         public void accept(final org.eclipse.xsemantics.example.fj.fj.Class c) {
           methods.addAll(EcoreUtil2.<Method>typeSelect(c.getMembers(), Method.class));
         }
@@ -1116,7 +1111,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
   
   protected Boolean applyAuxFunIsValue(final RuleApplicationTrace _trace_, final New exp) throws RuleFailedException {
     final Function1<Expression, Boolean> _function = new Function1<Expression, Boolean>() {
-      @Override
       public Boolean apply(final Expression it) {
         return FjTypeSystem.this.isValueInternal(_trace_, it);
       }
@@ -1151,10 +1145,8 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
   protected MethodBody applyAuxFunReplaceThisAndParams(final RuleApplicationTrace _trace_, final MethodBody body, final Expression thisReplacement, final List<Parameter> params, final List<Expression> args) throws RuleFailedException {
     MethodBody _clone = this.<MethodBody>clone(body);
     final Procedure1<MethodBody> _function = new Procedure1<MethodBody>() {
-      @Override
       public void apply(final MethodBody it) {
         final Consumer<This> _function = new Consumer<This>() {
-          @Override
           public void accept(final This it) {
             EcoreUtil2.replace(it.eContainer(), 
               it.eContainingFeature(), it, 
@@ -1163,7 +1155,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
         };
         EcoreUtil2.<This>eAllOfType(it, This.class).forEach(_function);
         final Consumer<ParamRef> _function_1 = new Consumer<ParamRef>() {
-          @Override
           public void accept(final ParamRef it) {
             final int paramIndex = params.indexOf(it.getParameter());
             EcoreUtil2.replace(it.eContainer(), 
@@ -1356,7 +1347,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
   
   private BasicType _applyRuleTBoolConstant_1(final RuleEnvironment G, final BoolConstant b) throws RuleFailedException {
     final Function1<BasicType, BasicType> _function = new Function1<BasicType, BasicType>() {
-      @Override
       public BasicType apply(final BasicType t) {
         BasicType _xblockexpression = null;
         {
@@ -1809,7 +1799,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
     New exp1 = null; // output parameter
     exp1 = this.<New>clone(exp);
     final Predicate<Expression> _function = new Predicate<Expression>() {
-      @Override
       public boolean apply(final Expression it) {
         Boolean _isValue = FjTypeSystem.this.isValueInternal(_trace_, it);
         return (!(_isValue).booleanValue());
@@ -1889,7 +1878,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
         if (message instanceof Field) {
           _matched=true;
           final Predicate<Field> _function = new Predicate<Field>() {
-            @Override
             public boolean apply(final Field it) {
               String _name = it.getName();
               String _name_1 = ((Field)message).getName();
@@ -1903,7 +1891,6 @@ public class FjTypeSystem extends XsemanticsRuntimeSystem {
           if (message instanceof Method) {
             _matched=true;
             final Predicate<Expression> _function = new Predicate<Expression>() {
-              @Override
               public boolean apply(final Expression it) {
                 Boolean _isValue = FjTypeSystem.this.isValueInternal(_trace_, it);
                 return (!(_isValue).booleanValue());

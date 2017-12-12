@@ -1,18 +1,18 @@
-/*******************************************************************************
+/**
  * Copyright (c) 2013-2017 Lorenzo Bettini.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *   Lorenzo Bettini - Initial contribution and API
- *******************************************************************************/
-
+ */
 package org.eclipse.xsemantics.example.expressions.typing;
 
 import com.google.common.base.Objects;
 import com.google.inject.Provider;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xsemantics.example.expressions.expressions.AndOrExpression;
 import org.eclipse.xsemantics.example.expressions.expressions.ArithmeticSigned;
 import org.eclipse.xsemantics.example.expressions.expressions.BooleanLiteral;
@@ -34,7 +34,6 @@ import org.eclipse.xsemantics.runtime.Result;
 import org.eclipse.xsemantics.runtime.RuleApplicationTrace;
 import org.eclipse.xsemantics.runtime.RuleEnvironment;
 import org.eclipse.xsemantics.runtime.RuleFailedException;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 /**

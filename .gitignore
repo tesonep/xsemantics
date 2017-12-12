@@ -15,4 +15,5 @@ target/
 #emf-gen/
 
 buildroot
+.settings/
 org.sonar.ide.eclipse.core.prefs

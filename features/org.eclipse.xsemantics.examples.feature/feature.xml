@@ -12,7 +12,7 @@ Contributors:
 <feature
       id="org.eclipse.xsemantics.examples.feature"
       label="Xsemantics Examples"
-      version="1.12.1.qualifier"
+      version="1.13.0.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1.v20140414-1359">
@@ -43,6 +43,14 @@ Contributors:
    <license url="%licenseURL">
       %license
    </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common.ui" version="2.7.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xsemantics.dsl.ui"/>
+      <import plugin="org.eclipse.xtext.junit4"/>
+   </requires>
 
    <plugin
          id="org.eclipse.xsemantics.ui.examples"
